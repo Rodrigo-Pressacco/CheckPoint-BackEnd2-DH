@@ -10,8 +10,6 @@ spring:
           predicates:
             - Path=/animal-service/**
           filters:
-            - AddRequestHeader=user-request-header, custom-user-request-header
-            - AddResponseHeader=user-response-header, custom-user-response-header
             - LogFilter=Hola este es el mensaje, usuario, Rodrigo
         - id: specie-service
           uri: lb://specie-service
@@ -19,13 +17,14 @@ spring:
           predicates:
             - Path=/specie-service/**
           filters:
-            - AddRequestHeader=user-request-header, custom-user-request-header
-            - AddResponseHeader=user-response-header, custom-user-response-header
             - LogFilter=Hola este es el mensaje, usuario, Rodrigo
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
+      default-filters:
+        - AddRequestHeader=user-request-header, custom-user-request-header
+        - AddResponseHeader=user-response-header, custom-user-response-header
 
 eureka:
   instance:
