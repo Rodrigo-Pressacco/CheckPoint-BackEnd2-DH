@@ -3,7 +3,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/ExamenFinalBack
+      uri: mongodb://localhost:27017/finalBack
 eureka:
   client:
     service-url:
