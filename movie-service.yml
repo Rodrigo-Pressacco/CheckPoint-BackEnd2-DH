@@ -1,17 +1,9 @@
 server:
   port : 8097
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
-    show-sql: false
-  datasource:
-    url: jdbc:mysql://localhost:3306/cine
-    username: root
-    password: root
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ExamenFinalBack
 eureka:
   client:
     service-url:
