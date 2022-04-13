@@ -26,7 +26,7 @@ spring:
       default-filters:
         - AddRequestHeader=user-request-header, custom-user-request-header
         - AddResponseHeader=user-response-header, custom-user-response-header
-        - LogFilter
+        - name: LogFilter
 
 eureka:
   instance:
