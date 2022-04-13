@@ -1,0 +1,45 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: movie-service
+          uri: lb://movie-service
+          #uri: http://localhost:8065
+          predicates:
+            - Path=/movie-service/**
+          filters:
+            - LogFilter=Hola este es el mensaje, usuario, Rodrigo
+        - id: catalog-service
+          uri: lb://catalog-service
+          #uri: http://localhost:8065
+          predicates:
+            - Path=/catalog-service/**
+          filters:
+            - LogFilter=Hola este es el mensaje, usuario, Rodrigo
+        - id: serie-service
+            uri: lb://serie-service
+            #uri: http://localhost:8065
+            predicates:
+              - Path=/serie-service/**
+            filters:
+              - LogFilter=Hola este es el mensaje, usuario, Rodrigo
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      default-filters:
+        - AddRequestHeader=user-request-header, custom-user-request-header
+        - AddResponseHeader=user-response-header, custom-user-response-header
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
