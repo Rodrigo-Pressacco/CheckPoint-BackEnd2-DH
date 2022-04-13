@@ -8,17 +8,23 @@ spring:
           uri: lb://movie-service
           predicates:
             - Path=/movie-service/**
-
-        - id: serie-service
-            uri: lb://serie-service
-            predicates:
-              - Path=/serie-service/**
+          filters:
+            - LogFilter
 
         - id: catalog-service
           uri: lb://catalog-service
           predicates:
             - Path=/catalog-service/**
+          filters:
+            - LogFilter
 
+        - id: serie-service
+          uri: lb://serie-service
+            predicates:
+              - Path=/serie-service/**
+            filters:
+              - LogFilter
+                
       discovery:
         locator:
           enabled: true
@@ -26,7 +32,6 @@ spring:
       default-filters:
         - AddRequestHeader=user-request-header, custom-user-request-header
         - AddResponseHeader=user-response-header, custom-user-response-header
-        - name: LogFilter
 
 eureka:
   instance:
