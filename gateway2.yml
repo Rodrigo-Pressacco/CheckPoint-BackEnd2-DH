@@ -1,5 +1,6 @@
 server:
   port: 8080
+
 spring:
   cloud:
     gateway:
@@ -8,20 +9,17 @@ spring:
           uri: lb://movie-service
           predicates:
             - Path=/movie-service/**
-          filters:
-            - LogFilter=Hola este es el mensaje, usuario, Rodrigo
-        - id: catalog-service
-          uri: lb://catalog-service
-          predicates:
-            - Path=/catalog-service/**
-          filters:
-            - LogFilter=Hola este es el mensaje, usuario, Rodrigo
+
         - id: serie-service
           uri: lb://serie-service
           predicates:
             - Path=/serie-service/**
-          filters:
-            - LogFilter=Hola este es el mensaje, usuario, Rodrigo
+
+        - id: catalog-service
+          uri: lb://catalog-service
+          predicates:
+            - Path=/catalog-service/**
+
       discovery:
         locator:
           enabled: true
@@ -29,6 +27,16 @@ spring:
       default-filters:
         - AddRequestHeader=user-request-header, custom-user-request-header
         - AddResponseHeader=user-response-header, custom-user-response-header
+        - LogFilter
+        - TokenRelay
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 3d6a6fb80f8ac740be52
+            client-secret: 6307e390352e8e3314da7ff4425d6324f6418a98
 
 eureka:
   instance:
