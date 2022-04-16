@@ -28,8 +28,15 @@ spring:
         - AddRequestHeader=user-request-header, custom-user-request-header
         - AddResponseHeader=user-response-header, custom-user-response-header
         - LogFilter
+        - TokenRelay
 
-
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 3d6a6fb80f8ac740be52
+            client-secret: 6307e390352e8e3314da7ff4425d6324f6418a98
 
 eureka:
   instance:
@@ -41,6 +48,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
-    
 
-      
