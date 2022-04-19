@@ -20,6 +20,8 @@ queue:
     name: movieQueue
   serie:
     name: serieQueue
+  catalog:
+    name: catalogQueue
 
 eureka:
   client:
