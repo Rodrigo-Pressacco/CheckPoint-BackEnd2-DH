@@ -16,8 +16,10 @@ spring:
     port: 5672
 
 queue:
-  catalog:
-    name: catalogQueue
+  movie:
+    name: movieQueue
+  serie:
+    name: serieQueue
 
 eureka:
   client:
