@@ -40,7 +40,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://eureka-server/eureka
+      defaultZone: http://eureka-server/
     fetch-registry: true
     register-with-eureka: true
 
