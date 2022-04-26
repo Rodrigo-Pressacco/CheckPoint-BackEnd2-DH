@@ -20,4 +20,4 @@ queue:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server/eureka/
+      defaultZone: http://eureka-server/
