@@ -25,7 +25,7 @@ queue:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server/
+      defaultZone: http://eureka-server/eureka/
     fetch-registry: true
     register-with-eureka: true
 
