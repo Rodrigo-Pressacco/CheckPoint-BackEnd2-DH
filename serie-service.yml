@@ -1,11 +1,11 @@
 server:
-  port : 0
+  port : 8084
 spring:
   data:
     mongodb:
-      uri: mongodb://mongodb/finalBack
+      uri: mongodb://mongodb:27017/finalBack
   zipkin:
-    base-url: http://zipkin/
+    base-url: http://zipkin:9411/
     enabled: true
 
   rabbitmq:
@@ -20,4 +20,4 @@ queue:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server/eureka/
+      defaultZone: http://eureka-server:8761/eureka/

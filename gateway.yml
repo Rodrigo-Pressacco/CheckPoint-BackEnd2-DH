@@ -30,7 +30,7 @@ spring:
         - LogFilter
 
   zipkin:
-    base-url: http://zipkin/
+    base-url: http://zipkin:9411/
     enabled: true
 
 eureka:
@@ -40,7 +40,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://eureka-server/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
     fetch-registry: true
     register-with-eureka: true
 
