@@ -3,7 +3,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://mongodb/finalBack
+      uri: mongodb://mongodb:27017/finalBack
   zipkin:
     base-url: http://zipkin/
     enabled: true
@@ -20,4 +20,4 @@ queue:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
